@@ -1,6 +1,8 @@
 
 const getFormFields = require('../../lib/get-form-fields.js')
 const store = require('./store.js')
+const api = require('./api.js')
+
 
 const createPlaylist = function(event) {
   event.preventDefault()
@@ -32,25 +34,32 @@ const deletePlaylist = function(event) {
   console.log('event is ', (event))
 }
 
-
 const signInSubmit = function(event) {
   event.preventDefault()
+  const data = getFormFields(event.target)
+  api.signIn(data)
   console.log('clicked sign in')
   console.log('event is ', (event))
 }
 
 const signUpSubmit = function(event) {
   event.preventDefault()
+  const data = getFormFields(event.target)
+  api.signUp(data)
   console.log('clicked sign up')
   console.log('event is ', (event))
 }
 const signOutSubmit = function(event) {
   event.preventDefault()
+  api.signOut()
   console.log('clicked sign out')
   console.log('event is ', (event))
 }
+
 const changePasswordSubmit = function(event) {
+  const data = getFormFields(event.target)
   event.preventDefault()
+  api.changePassword(data)
   console.log('clicked change pass')
   console.log('event is ', (event))
 }

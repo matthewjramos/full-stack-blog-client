@@ -8,16 +8,18 @@
 
 $(() => {
 
+// playlists
+
   $('#create-playlist').on('click', playlistEvents.createPlaylist)
   $('#get-playlist').on('click', playlistEvents.getPlaylist)
   $('#find-playlist').on('click', playlistEvents.findPlaylist)
   $('#update-playlist').on('click', playlistEvents.updatePlaylist)
   $('#delete-playlist').on('click', playlistEvents.deletePlaylist)
 
-  // $('#sign-up').on('submit', playlistEvents.signUpSubmit)
-  // $('#sign-in').on('submit', playlistEvents.signInSubmit)
-  // $('#change-password').on('submit', playlistEvents.changePasswordSubmit)
-  // $('#sign-out').on('click', playlistEvents.signOutSubmit)
-  //
+// users
+  $('#sign-up').on('submit', playlistEvents.signUpSubmit)
+  $('#sign-in').on('submit', playlistEvents.signInSubmit)
+  $('#change-password').on('submit', playlistEvents.changePasswordSubmit)
+  $('#sign-out').on('click', playlistEvents.signOutSubmit)
 
 })

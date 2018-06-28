@@ -32,10 +32,37 @@ const deletePlaylist = function(event) {
   console.log('event is ', (event))
 }
 
+
+const signInSubmit = function(event) {
+  event.preventDefault()
+  console.log('clicked sign in')
+  console.log('event is ', (event))
+}
+
+const signUpSubmit = function(event) {
+  event.preventDefault()
+  console.log('clicked sign up')
+  console.log('event is ', (event))
+}
+const signOutSubmit = function(event) {
+  event.preventDefault()
+  console.log('clicked sign out')
+  console.log('event is ', (event))
+}
+const changePasswordSubmit = function(event) {
+  event.preventDefault()
+  console.log('clicked change pass')
+  console.log('event is ', (event))
+}
+
 module.exports = {
   createPlaylist: createPlaylist,
   getPlaylist: getPlaylist,
   findPlaylist: findPlaylist,
   updatePlaylist: updatePlaylist,
-  deletePlaylist: deletePlaylist
+  deletePlaylist: deletePlaylist,
+  signInSubmit: signInSubmit,
+  signUpSubmit: signUpSubmit,
+  signOutSubmit: signOutSubmit,
+  changePasswordSubmit: changePasswordSubmit
 }

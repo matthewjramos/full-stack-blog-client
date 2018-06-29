@@ -1,6 +1,5 @@
 'use strict'
 
-const store = {
-}
+const store = require('./store.js')
 
 module.exports = store

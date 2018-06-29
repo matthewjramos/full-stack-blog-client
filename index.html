@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Full Stack Blog </title>
+      <title>Full Stack </title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,15 +12,25 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Full Stack Blog</h1>
+      <h1>Full Stack</h1>
 
-      <p>
+      <div id="content"></div>
+
+      <p></p>
+
+      <!-- <p>
         <form type="submit" id="create-playlist">
           <input>Title</input>
           <input>Description</input>
           <button type="submit">Create A Playlist</button>
         </form>
-      </p>
+      </p> -->
+
+      <form id="create-playlist">
+        <input name="credentials[title]" type="text" placeholder="title">
+        <input name="credentials[description]" type="text" placeholder="description">
+        <button type="submit">Create A Playlist!</button>
+      </form>
 
       <p>
         <button type="submit" id="get-playlist">Get All Playlists</button>

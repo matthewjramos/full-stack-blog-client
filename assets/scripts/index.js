@@ -8,7 +8,7 @@
 
 $(() => {
 // playlists
-  $('#create-playlist').on('click', playlistEvents.createPlaylist)
+  $('#create-playlist').on('submit', playlistEvents.createPlaylist)
   $('#get-playlist').on('click', playlistEvents.getPlaylist)
   $('#find-playlist').on('click', playlistEvents.findPlaylist)
   $('#update-playlist').on('click', playlistEvents.updatePlaylist)

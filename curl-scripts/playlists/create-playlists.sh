@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# sh scripts/playlists/delete-playlist.sh
+# sh scripts/playlists/create-playlists.sh
 curl "http://localhost:4741/playlists" \
   --include \
   --request POST \

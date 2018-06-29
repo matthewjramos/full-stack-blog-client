@@ -11,11 +11,10 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
-  store.user = data.user
+  // store.user = data.user
   console.log('sign in')
   console.log('sign in data is ', data)
-  console.log('data.user is ', data.user)
-  console.log('store user is ', store.user)
+  // console.log('store user is ', store.user)
   // console.log('token is ', store.user.token)
   return $.ajax({
     method: 'POST',
@@ -25,7 +24,6 @@ const signIn = function (data) {
 }
 
 const changePassword = function (data) {
-  store.user = data.user
   console.log('change password')
   console.log('change pass data is ', data)
   console.log('store is ', store)
@@ -53,7 +51,7 @@ const signOut = function () {
 }
 
 const createPlaylistSubmit = function (data) {
-  store.user = data.user
+  // store.user = data.user
   console.log('data is ', data)
   console.log('store user token is ', store.user.token)
   return $.ajax({
@@ -62,7 +60,8 @@ const createPlaylistSubmit = function (data) {
     headers: {
       Authorization: 'Token token=' + store.user.token,
       contentType: 'application/json'
-    }
+    },
+    data: data
   })
 }
 

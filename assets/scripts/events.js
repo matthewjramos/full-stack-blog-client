@@ -54,7 +54,7 @@ const signInSubmit = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInError)
-
+  $(event.target).trigger('reset')
   console.log('clicked sign in')
   console.log('event is ', (event))
 }
@@ -65,13 +65,15 @@ const signUpSubmit = function (event) {
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpError)
-
+  $(event.target).trigger('reset')
   console.log('clicked sign up')
   console.log('event is ', (event))
 }
 const signOutSubmit = function (event) {
   event.preventDefault()
   api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutError)
   console.log('clicked sign out')
   console.log('event is ', (event))
 }
@@ -80,6 +82,9 @@ const changePasswordSubmit = function (event) {
   const data = getFormFields(event.target)
   event.preventDefault()
   api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordError)
+  $(event.target).trigger('reset')
   console.log('clicked change pass')
   console.log('event is ', (event))
 }

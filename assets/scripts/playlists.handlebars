@@ -1,0 +1,16 @@
+
+{{#each playlists as |playlist|}}
+  {{log playlist}}
+  <h1 data-id="{{playlist.id}}" class="my-playlist"> <small>Title: {{playlist.title}}</small></h1>
+  <ul data-id="{{playlist.id}}">
+    <li>{{#if playlist.id}}
+      {{playlist.description}}
+    {{else}}
+      No description found.
+    {{/if}}</li>
+    <li><button  class="update-playlist">Edit Playlist</button></li>
+    <li><button  class="delete-playlist">Delete Playlist</button></li>
+
+  </ul>
+
+{{/each}}

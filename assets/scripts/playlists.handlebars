@@ -8,9 +8,29 @@
     {{else}}
       No description found.
     {{/if}}</li>
-    <li><button  class="update-playlist">Edit Playlist</button></li>
+    <!-- <li><button  class="update-playlist">Edit Playlist</button></li> -->
     <li><button  class="delete-playlist">Delete Playlist</button></li>
+
+    <!-- // form testing -->
+
+    <li>
+      <!-- <li><button  class="show-update-playlist">Edit Playlist</button></li> -->
+        <!-- // on clicking of this button ^, show this following form: -->
+      <form class="update-playlist">
+        <input name="playlist[title]" type="text" placeholder="title">
+        <input name="playlist[description]" type="text" placeholder="description">
+        <button type="submit">Update Playlist!</button>
+      </form>
+    </li>
+
+    <!-- // end form testing -->
 
   </ul>
 
 {{/each}}
+
+
+<!-- // create forms in each playlist list item
+// keep them hidden when get loads
+// keep have them for title, description
+// on submission, show updated name change, display all Playlists -->

@@ -13,10 +13,12 @@ $(() => {
   $('#create-playlist').on('submit', playlistEvents.createPlaylist)
   $('#get-playlist').on('click', playlistEvents.getPlaylist)
   $('#find-playlist').on('submit', playlistEvents.findPlaylist)
-  $('#update-playlist').on('submit', playlistEvents.updatePlaylist)
+  // $('#update-playlist').on('submit', playlistEvents.updatePlaylist)
   // $('#delete-playlist').on('submit', playlistEvents.deletePlaylist)
 
   $('#content').on('click', '.delete-playlist', playlistEvents.deletePlaylist)
+  $('#content').on('click', '.show-update-playlist', playlistEvents.showUpdatePlaylist)
+  $('#content').on('submit', '.update-playlist', playlistEvents.updatePlaylist)
 
   // Playlist ends
   // Auth starts

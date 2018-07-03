@@ -102,23 +102,18 @@ const findPlaylistSubmit = function (data) {
   })
 }
 
-const updatePlaylistSubmit = function (data) {
-  console.log(data.playlist.id)
-  console.log('data is ', data)
+const updatePlaylistSubmit = function (data, playlistId) {
+  console.log(data.id)
+  console.log('data.id is ', data.playlist.id)
   console.log('store user token is ', store.user.token)
   return $.ajax({
     method: 'PATCH',
-    url: 'http://localhost:4741/playlists/' + data.playlist.id,
+    url: 'http://localhost:4741/playlists/' + playlistId,
     headers: {
       Authorization: 'Token token=' + store.user.token,
       contentType: 'application/json'
     },
-    data: {
-      playlist: {
-        title: data.playlist.title,
-        description: data.title.description
-      }
-    }
+    data: data
   })
 }
 

@@ -26,7 +26,6 @@ const getPlaylist = function (event) {
     .catch(ui.getPlaylistError)
   // $('.update-playlist').on('submit', updatePlaylist)
   // $('.delete-playlist').on('submit', deletePlaylist)
-
   console.log('clicked get playlist')
   console.log('event is ', (event))
 }
@@ -39,13 +38,22 @@ const findPlaylist = function (event) {
   console.log('event target html is ', (event.target).innerHTML)
 }
 
+const showUpdatePlaylist = function (event) {
+  console.log('clicked show update button')
+  console.log(event.target)
+  $('.update-playlist').show()
+}
 const updatePlaylist = function (event) {
   event.preventDefault()
+  console.log('clicked update playlist')
   const data = getFormFields(event.target)
-  api.updatePlaylistSubmit(data)
+  const playlistId = $(event.target).closest('ul').attr('data-id')
+  api.updatePlaylistSubmit(data, playlistId)
+    .then(ui.updatePlaylistSuccess)
     .then(ui.getPlaylistSuccess)
-    .catch(ui.getPlaylistError)
+    .catch(ui.updatePlaylistError)
 
+  $(event.target).trigger('reset')
   console.log('clicked update playlist')
   console.log('event is ', (event))
 }
@@ -55,28 +63,11 @@ const deletePlaylist = function (event) {
   console.log('clicked delete playlist')
   console.log('event is ', (event))
   const playlistId = $(event.target).closest('ul').attr('data-id')
-  // const data = getFormFields(event.target)
   api.deletePlaylistSubmit(playlistId)
     .then(ui.deletePlaylistSuccess)
+    .then(ui.getPlaylistSuccess)
     .catch(ui.deletePlaylistError)
 }
-
-// const onDeleteBook = (event) => {
-//   event.preventDefault()
-//   const bookId = $(event.target).closest('ul').attr('data-id')
-//   api.deleteBook(bookId)
-//     .then(() => onGetBooks(event))
-//     .catch(ui.failure)
-// }
-// Playlist ends
-
-// $('.delete-playlist').on('submit', function (event) {
-//   const data = getFormFields(this)
-//   event.preventDefault()
-//   api.deletePlaylist(data)
-//     .then(deletePlaylistSuccess)
-//     .catch(deletePlaylistFailure)
-// })
 
 // Auth starts
 
@@ -127,6 +118,7 @@ module.exports = {
   createPlaylist: createPlaylist,
   getPlaylist: getPlaylist,
   findPlaylist: findPlaylist,
+  showUpdatePlaylist: showUpdatePlaylist,
   updatePlaylist: updatePlaylist,
   deletePlaylist: deletePlaylist,
   signInSubmit: signInSubmit,

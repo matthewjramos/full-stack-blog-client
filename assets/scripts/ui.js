@@ -82,11 +82,11 @@ const deletePlaylistError = function (error) {
 }
 
 const findPlaylistSuccess = function (response) {
-  data.id = response.id
+  // data.id = response.id
   $('#content').html('Playlist found successfully!')
   // $('#display').text(response.playlist)
   console.log('playlist lists is ', response.playlist)
-  console.log('data.id is ', data.id)
+  // console.log('data.id is ', data.id)
 }
 const findPlaylistError = function (error) {
   $('#content').html('Playlist find unsuccessful', error)
@@ -95,8 +95,8 @@ const findPlaylistError = function (error) {
 
 const updatePlaylistSuccess = function (response) {
   $('#content').html('Playlist updated successfully!')
-  $('#display').text(response.playlist)
-  console.log('playlist lists is ', response.playlist)
+  // $('#display').text(response.playlist)
+  // console.log('playlist lists is ', response.playlist)
 }
 const updatePlaylistError = function (error) {
   $('#content').html('Playlist update unsuccessful', error)

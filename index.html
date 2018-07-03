@@ -14,88 +14,43 @@
     <body>
       <h1>Full Stack</h1>
 
-      <div id="content"></div>
 
       <p></p>
 
-      <div id="display"></div>
-
-      <!-- <p>
-        <form type="submit" id="create-playlist">
-          <input>Title</input>
-          <input>Description</input>
-          <button type="submit">Create A Playlist</button>
-        </form>
-      </p> -->
+      <div id="display" class="alert alert-success"></div>
 
       <form id="create-playlist">
         <input name="playlist[title]" type="text" placeholder="title">
         <input name="playlist[description]" type="text" placeholder="description">
-        <button type="submit">Create A Playlist!</button>
+        <button type="submit" class="btn btn-success">Create Playlist!</button>
       </form>
 
       <p>
-        <button type="submit" id="get-playlist">Get All Playlists</button>
+        <button type="submit" id="get-playlist" class="btn btn-light">Get All Playlists</button>
       </p>
-
-      <!-- <p>
-        <form type="submit">
-          <input>Title</input>
-          <button type="submit" id="find-playlist">Find A Playlist</button>
-        </form>
-      </p> -->
-
-      <!-- <form id="find-playlist">
-        <input name="playlist[id]" type="text" placeholder="id">
-        <input name="playlist[title]" type="text" placeholder="title">
-        <input name="playlist[description]" type="text" placeholder="description">
-        <button type="submit">Find A Playlist!</button>
-      </form> -->
-
-
-
-
-
-
-
-
-      <!-- <p>
-        <form type="submit">
-          <input>Title</input>
-          <input>Description</input>
-          <button type="submit" id="update-playlist">Update A Playlist</button>
-        </form>
-      </p> -->
-
-      <!-- <p>
-        <form type="submit">
-          <input>Title</input>
-          <button type="submit" id="delete-playlist">Delete A Playlist</button>
-        </form>
-      </p> -->
-
 
       <form id="sign-in">
         <input name="credentials[email]" type="text" placeholder="email">
         <input name="credentials[password]" type="password" placeholder="password">
-        <button id="signin-button" type="submit">Sign in!</button>
+        <button id="signin-button" type="submit" class="btn btn-light">Sign In</button>
       </form>
 
       <form id="sign-up">
         <input name="credentials[email]" type="text" placeholder="email">
         <input name="credentials[password]" type="password" placeholder="password">
         <input name="credentials[password_confirmation]" type="password" placeholder="confirm">
-        <button type="submit">Sign up!</button>
+        <button type="submit" class="btn btn-light">Sign Up</button>
       </form>
 
-      <button id="sign-out" class="start-hidden">Sign Out!</button>
+      <button id="sign-out" class="start-hidden btn btn-danger">Sign Out!</button>
 
       <form id="change-password" class="start-hidden">
         <input name="passwords[old]" type="password" placeholder="old password">
         <input name="passwords[new]" type="password" placeholder="new password">
-        <button type="submit">Change Password</button>
+        <button type="submit" class="btn btn-light">Change Password</button>
       </form>
 
+      <div id="content" ></div>
 
 
 

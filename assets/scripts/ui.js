@@ -1,39 +1,50 @@
 const store = require('./store.js')
 const handlebars = require('./playlists.handlebars')
-const playlistEvents = require('./events.js')
 
 // Auth starts
 const signInSuccess = function (response) {
   store.user = response.user
-  $('#content').html('Signed in successfully!')
-  console.log('store user is ', store.user)
-  console.log('token is ', store.user.token)
+  $('#display').html('Signed in successfully!')
+  $('#create-playlist').show()
+  $('#get-playlist').show()
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
 }
+
 const signInError = function (error) {
-  $('#content').html('Sign in unsuccessful, please try again!', (error))
+  $('#display').html('Sign in unsuccessful, please try again!', (error))
 }
 
 const signUpSuccess = function (response) {
-  $('#content').html('Signed up successfully!')
+  $('#display').html('Signed up successfully!')
 }
 const signUpError = function (error) {
-  $('#content').html('Sign up unsuccessful, please try again.', (error))
+  $('#display').html('Sign up unsuccessful, please try again.', (error))
 }
 
 const changePasswordSuccess = function (changePasswordResponse) {
-  $('#content').html('Password changed successfully!')
+  $('#display').html('Password changed successfully!')
 }
 const changePasswordError = function (error) {
-  $('#content').html('Password change unsuccessful, please try again.', (error))
+  $('#display').html('Password change unsuccessful, please try again.', (error))
 }
 
 const signOutSuccess = function (signOutResponse) {
   delete store.user
-  $('#content').html('Signed out successfully!')
+  $('#display').html('Signed out successfully!')
+  $('#create-playlist').hide()
+  $('#get-playlist').hide()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#sign-up').show()
+  $('#sign-in').show()
 }
+
 const signOutError = function (error) {
   // figure out why this isnt working
-  $('#content').html('Failed to sign out.', error)
+  $('#display').html('Failed to sign out.', error)
 }
 
 // Auth ends
@@ -41,66 +52,51 @@ const signOutError = function (error) {
 // Playlist starts
 
 const createPlaylistSuccess = function (response) {
-  $('#content').html('Playlist created successfully!')
-  $('#display').html(response.playlist.title)
-  console.log('playlist is ', response.playlist.title)
-  console.log('playlist is ', response.playlist)
-  // $('.update-playlist').on('submit', playlistEvents.updatePlaylist)
-  // $('.delete-playlist').on('submit', playlistEvents.deletePlaylist)
+  $('#display').html('Playlist created successfully!')
+  $('#display')
 }
 
 const createPlaylistError = function (error) {
   $('#content').html('Playlist creation unsuccessful', error)
-  console.log('error is ', (error))
 }
 
 // use handlebars for below
 const getPlaylistSuccess = function (response) {
-  $('#content').html('Playlists retrieved successfully!')
-  $('#display').text(response.playlists)
-  console.log('playlist lists is ', response.playlists)
+  $('#display').html('Playlists retrieved successfully!')
   const showPlaylistsHtml = handlebars({ playlists: response.playlists })
+  $('#content').html('')
   $('#content').append(showPlaylistsHtml)
 }
 // use handlebars for above
 
 const getPlaylistError = function (error) {
-  $('#content').html('Playlist retrieval unsuccessful', error)
-  console.log('error is ', (error))
+  $('#display').html('Playlist retrieval unsuccessful', error)
 }
 
 // WIP starts
 
-const deletePlaylistSuccess = function (response) {
-  $('#content').html('Playlist deleted successfully!')
-  $('#display').text(response)
-  console.log('playlist lists is ', response.playlist)
+const deletePlaylistSuccess = function (playlistId) {
+  $('#display').html('Playlist deleted successfully!')
+  $('data-id' + playlistId).remove()
 }
 const deletePlaylistError = function (error) {
-  $('#content').html('Cannot delete playlist', error)
-  console.log('error is ', (error))
+  $('#display').html('Cannot delete playlist', error)
 }
 
 const findPlaylistSuccess = function (response) {
-  // data.id = response.id
-  $('#content').html('Playlist found successfully!')
-  // $('#display').text(response.playlist)
-  console.log('playlist lists is ', response.playlist)
-  // console.log('data.id is ', data.id)
+  $('#display').html('Playlist found successfully!')
 }
 const findPlaylistError = function (error) {
-  $('#content').html('Playlist find unsuccessful', error)
-  console.log('error is ', (error))
+  $('#display').html('Playlist find unsuccessful', error)
 }
 
 const updatePlaylistSuccess = function (response) {
-  $('#content').html('Playlist updated successfully!')
+  $('#display').html('Playlist updated successfully!')
   // $('#display').text(response.playlist)
   // console.log('playlist lists is ', response.playlist)
 }
 const updatePlaylistError = function (error) {
-  $('#content').html('Playlist update unsuccessful', error)
-  console.log('error is ', (error))
+  $('#display').html('Playlist update unsuccessful', error)
 }
 
 // WIP ends

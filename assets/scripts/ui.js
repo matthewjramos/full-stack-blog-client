@@ -1,5 +1,6 @@
 const store = require('./store.js')
 const handlebars = require('./playlists.handlebars')
+const playlistEvents = require('./events.js')
 
 // Auth starts
 const signInSuccess = function (response) {
@@ -34,6 +35,7 @@ const changePasswordError = function (error) {
 const signOutSuccess = function (signOutResponse) {
   delete store.user
   $('#display').html('Signed out successfully!')
+  $('#content').html('')
   $('#create-playlist').hide()
   $('#get-playlist').hide()
   $('#change-password').hide()
@@ -53,7 +55,7 @@ const signOutError = function (error) {
 
 const createPlaylistSuccess = function (response) {
   $('#display').html('Playlist created successfully!')
-  $('#display')
+  // $('#display')
 }
 
 const createPlaylistError = function (error) {
@@ -61,9 +63,10 @@ const createPlaylistError = function (error) {
 }
 
 // use handlebars for below
-const getPlaylistSuccess = function (response) {
+const getPlaylistSuccess = function (data) {
+  // console.log('response is ', response)
   $('#display').html('Playlists retrieved successfully!')
-  const showPlaylistsHtml = handlebars({ playlists: response.playlists })
+  const showPlaylistsHtml = handlebars({ playlists: data.playlists })
   $('#content').html('')
   $('#content').append(showPlaylistsHtml)
 }
@@ -77,7 +80,14 @@ const getPlaylistError = function (error) {
 
 const deletePlaylistSuccess = function (playlistId) {
   $('#display').html('Playlist deleted successfully!')
-  $('data-id' + playlistId).remove()
+  // const showPlaylistsHtml = handlebars({ playlists: data.playlists })
+
+  $('#content').html('')
+
+  // $('#content').append(showPlaylistsHtml)
+
+  // playlistId.remove()
+  // playlistEvents.getPlaylist()
 }
 const deletePlaylistError = function (error) {
   $('#display').html('Cannot delete playlist', error)

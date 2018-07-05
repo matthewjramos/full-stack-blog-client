@@ -19,16 +19,6 @@
 
       <div id="display" class="alert alert-success"></div>
 
-      <form id="create-playlist">
-        <input name="playlist[title]" type="text" placeholder="title">
-        <input name="playlist[description]" type="text" placeholder="description">
-        <button type="submit" class="btn btn-success">Create Playlist!</button>
-      </form>
-
-      <p>
-        <button type="submit" id="get-playlist" class="btn btn-light">Get All Playlists</button>
-      </p>
-
       <form id="sign-in">
         <input name="credentials[email]" type="text" placeholder="email">
         <input name="credentials[password]" type="password" placeholder="password">
@@ -42,13 +32,23 @@
         <button type="submit" class="btn btn-light">Sign Up</button>
       </form>
 
-      <button id="sign-out" class="start-hidden btn btn-danger">Sign Out!</button>
+      <p>
+        <button type="submit" id="get-playlist" class="btn btn-light">Get All Playlists</button>
+      </p>
+
+      <form id="create-playlist">
+        <input name="playlist[title]" type="text" placeholder="title">
+        <input name="playlist[description]" type="text" placeholder="description">
+        <button type="submit" class="btn btn-success">Create Playlist!</button>
+      </form>
 
       <form id="change-password" class="start-hidden">
         <input name="passwords[old]" type="password" placeholder="old password">
         <input name="passwords[new]" type="password" placeholder="new password">
         <button type="submit" class="btn btn-light">Change Password</button>
       </form>
+
+      <button id="sign-out" class="start-hidden btn btn-danger">Sign Out!</button>
 
       <div id="content" ></div>
 

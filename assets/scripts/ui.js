@@ -45,7 +45,6 @@ const signOutSuccess = function (signOutResponse) {
 }
 
 const signOutError = function (error) {
-  // figure out why this isnt working
   $('#display').html('Failed to sign out.', error)
 }
 
@@ -55,7 +54,6 @@ const signOutError = function (error) {
 
 const createPlaylistSuccess = function (response) {
   $('#display').html('Playlist created successfully!')
-  // $('#display')
 }
 
 const createPlaylistError = function (error) {
@@ -76,18 +74,9 @@ const getPlaylistError = function (error) {
   $('#display').html('Playlist retrieval unsuccessful', error)
 }
 
-// WIP starts
-
 const deletePlaylistSuccess = function (playlistId) {
   $('#display').html('Playlist deleted successfully!')
-  // const showPlaylistsHtml = handlebars({ playlists: data.playlists })
-
   $('#content').html('')
-
-  // $('#content').append(showPlaylistsHtml)
-
-  // playlistId.remove()
-  // playlistEvents.getPlaylist()
 }
 const deletePlaylistError = function (error) {
   $('#display').html('Cannot delete playlist', error)
@@ -102,12 +91,11 @@ const findPlaylistError = function (error) {
 
 const updatePlaylistSuccess = function (playlistId) {
   $('#display').html('Playlist updated successfully!')
+  $('#content').html('')
 }
 const updatePlaylistError = function (error) {
   $('#display').html('Playlist update unsuccessful', error)
 }
-
-// WIP ends
 
 // Playlist ends
 

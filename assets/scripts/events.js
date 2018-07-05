@@ -29,9 +29,9 @@ const findPlaylist = function (event) {
   api.findPlaylistSubmit(data)
 }
 
-// const showUpdatePlaylist = function (event) {
-//   $('.update-playlist').show()
-// }
+const showUpdatePlaylist = function (event) {
+  $('.update-playlist').show()
+}
 const updatePlaylist = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)

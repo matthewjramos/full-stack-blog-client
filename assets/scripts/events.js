@@ -10,14 +10,15 @@ const createPlaylist = function (event) {
   const data = getFormFields(event.target)
   api.createPlaylistSubmit(data)
     .then(ui.createPlaylistSuccess)
+    // .then(ui.getPlaylistSuccess)
     .catch(ui.createPlaylistError)
-    $(event.target).trigger('reset')
+  $(event.target).trigger('reset')
 }
 
 const getPlaylist = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
-  api.getPlaylistSubmit(data)
+  // const data = getFormFields(event.target)
+  api.getPlaylistSubmit()
     .then(ui.getPlaylistSuccess)
     .catch(ui.getPlaylistError)
 }
@@ -28,18 +29,16 @@ const findPlaylist = function (event) {
   api.findPlaylistSubmit(data)
 }
 
-const showUpdatePlaylist = function (event) {
-  $('.update-playlist').show()
-}
+// const showUpdatePlaylist = function (event) {
+//   $('.update-playlist').show()
+// }
 const updatePlaylist = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   const playlistId = $(event.target).closest('ul').attr('data-id')
   api.updatePlaylistSubmit(data, playlistId)
     .then(ui.updatePlaylistSuccess)
-    .then(ui.getPlaylistSuccess)
     .catch(ui.updatePlaylistError)
-
   $(event.target).trigger('reset')
 }
 

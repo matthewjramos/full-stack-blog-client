@@ -100,10 +100,8 @@ const findPlaylistError = function (error) {
   $('#display').html('Playlist find unsuccessful', error)
 }
 
-const updatePlaylistSuccess = function (response) {
+const updatePlaylistSuccess = function (playlistId) {
   $('#display').html('Playlist updated successfully!')
-  // $('#display').text(response.playlist)
-  // console.log('playlist lists is ', response.playlist)
 }
 const updatePlaylistError = function (error) {
   $('#display').html('Playlist update unsuccessful', error)

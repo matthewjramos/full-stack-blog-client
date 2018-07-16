@@ -1,0 +1,53 @@
+{{#each songs as |song|}}
+  <!-- {{log song}} -->
+    <h3 data-id="{{song.id}}" class="my-song">{{song.title}}</h3>
+    <ul data-id="{{song.id}}">
+      <li>
+        <h3>
+          {{#if song.name}}
+          {{song.artist}}
+          {{song.album}}
+          {{else}}
+          No description found.
+          {{/if}}
+        </h3>
+      </li>
+      <!-- <li>
+        <button class="get-song btn btn-light">Get Songs</button>"
+      </li> -->
+      <li>
+      <form class="create-song">
+        <input name="song[title]" type="text" placeholder="title">
+        <br>
+        <input name="song[artist]" type="text" placeholder="artist">
+        <br>
+        <input name="song[album]" type="text" placeholder="album">
+        <br>
+        <button type="submit" class="btn btn-primary">Add Song</button>
+      </form>
+      </li>
+      <li>
+        <button  class="delete-song btn btn-danger">Delete Playlist</button>
+      </li>
+    </ul>
+
+  {{/each}}
+
+  <!--
+*Matt*
+User must not see update/delete if they dont own the song
+
+ERD
+`Playlist has_many Songs`
+`Song belongs_to Playlist`
+
+User Stories
+- User must be able to create a Song assigned to a Playlist
+- User must be able to delete a Song
+- User deletes a Playlist, its Songs should be deleted
+Views
+- New Song form underneath Playlist Delete button
+- Song form must have fields for title, artist, and album
+- Songs listed underneath New Song form
+- Each Song has a title, artist, album, and Delete button
+-->

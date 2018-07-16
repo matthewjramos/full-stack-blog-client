@@ -15,9 +15,16 @@ $(() => {
   // Playlist ends
 
   // for handlebars-generated items
+  // Playlist starts
   $('#content').on('click', '.delete-playlist', playlistEvents.deletePlaylist)
   $('#content').on('click', '.show-update-playlist', playlistEvents.showUpdatePlaylist)
-  $('#content').on('submit', '.update-playlist', playlistEvents.updatePlaylist)
+  $('#content').on('submit', 'update-playlist', playlistEvents.updatePlaylist)
+  // Playlist ends
+  // Song starts
+  $('#content').on('click', '.get-song', playlistEvents.getSong)
+  $('#content').on('click', '.delete-song', playlistEvents.deleteSong)
+  $('#content').on('submit', '.create-song', playlistEvents.createSong)
+  // Song ends
   // end handlebars-generated items
 
   // hidden on start
